@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Launch Radar — Protocols Without Tokens, Ranked by Farm Value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header id="top">
+  <div class="masthead">
+    <div class="brand">
+      <span class="glyph">▲</span>
+      <div>
+        <h1>LAUNCH RADAR</h1>
+        <p class="tagline">Protocols without tokens, ranked by farm value</p>
+      </div>
+    </div>
+    <div class="chips" id="chips"></div>
+  </div>
+  <p class="method">Value model — <code>implied = TVL × <span id="m-base"></span> × growth-mult × maturity-mult</code>;
+    growth-mult from the 7-day TVL change, maturity-mult from how long the protocol has run with no token.
+    Every figure comes from the sealed snapshot of <span id="m-asof"></span>; the watchlist of
+    <span id="m-watch"></span> tokenless protocols is the floor, the early rows below it are the find.</p>
+  <div class="controls">
+    <input id="q" type="search" placeholder="Filter by name, chain, category…" autocomplete="off">
+    <select id="cat"><option value="all">All categories</option></select>
+    <select id="wl"><option value="all">Watchlist + early</option><option value="watch">Watchlist only</option><option value="early">Early radar only</option></select>
+    <div class="tabs" id="tabs">
+      <button class="tab active" data-tab="board">Pre-token board</button>
+      <button class="tab" data-tab="live">Live tokens</button>
+    </div>
+  </div>
+</header>
+<main>
+  <section id="board"></section>
+  <section id="live" hidden></section>
+</main>
+<aside id="drawer" hidden></aside>
+<div id="scrim" hidden></div>
+<footer>
+  <p>Data: <span id="f-src"></span> · Watchlist floor <span id="f-floor"></span> · Implied value is this radar's own claim, not a prediction that a token launches.</p>
+</footer>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
